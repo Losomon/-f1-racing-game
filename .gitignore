@@ -1,0 +1,23 @@
+# Build outputs
+out/
+build/
+*.exe
+*.o
+*.obj
+*.dll
+*.lib
+*.pdb
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+Makefile
+cmake_install.cmake
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# Tools
+tools/*.pyc
+
