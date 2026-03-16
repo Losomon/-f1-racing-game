@@ -1,164 +1,179 @@
-# F1 Racing Simulator – First Attempt (Learning Project)
+# 🏎️ F1 Racing Simulator — Monaco
 
-[![Build](https://img.shields.io/badge/Build-Working-brightgreen)]
-[![Language](https://img.shields.io/badge/C++-17-blue)]
-[![Library](https://img.shields.io/badge/Raylib-GameDev-orange)]
+[![Build](https://img.shields.io/badge/Build-Working-brightgreen)]()
+[![Language](https://img.shields.io/badge/C++-17-blue)]()
+[![Library](https://img.shields.io/badge/Raylib-4.5-orange)]()
+[![License](https://img.shields.io/badge/License-MIT-yellow)]()
 
-## My First Attempt at Building an F1 Sim
-
-Hi, I'm a solo indie developer and this project is my **first attempt at building a 3D racing simulator in C++ using raylib**.
-
-I wanted to understand how real game engines work, so instead of using Unity or Unreal, I tried to build my own small engine from scratch.  
-This turned out to be much harder than I expected.
-
-I had to deal with many problems like:
-
-- Model loading errors
-- Wrong file paths
-- Engine crashes
-- Rendering bugs
-- GLB / glTF issues
-- Folder structure problems
-- Debugging C++ code for hours
-
-Sometimes the game would not even start because of one wrong path.
-
-Even though it was difficult, this project helped me learn how real-time rendering and game engines work internally.
+> A from-scratch 3D F1 racing simulator built in C++ with raylib — featuring the Monaco circuit, a Mercedes W11, real-time rendering, and custom physics.
 
 ---
 
-## Current Demo (Work in Progress)
+## 📸 Screenshots
 
-Right now the project can:
+<!-- INSTRUCTIONS: Replace the paths below with your actual screenshot files.
+     Put your images inside a folder called `docs/screenshots/` in your repo root.
+     Example: docs/screenshots/gameplay.png -->
 
-- Open a window using raylib
-- Load 3D models (.glb)
-- Render an F1 car model
-- Render a track model
-- Move camera in the scene
-- Use a simple engine structure
+### Main view
+![Main gameplay view](docs/screenshots/gameplay.png)
 
-This is still a learning project and not a full game yet.
+### Car render
+
+![Mercedes W11 render](docs/screenshots/car.png)
+
+### Monaco track
+![Monaco circuit](docs/screenshots/track.png)
+
+> **Tip:** To add a screenshot, press `PrintScreen` while the game runs,
+> save it as a `.png`, place it in `docs/screenshots/`, and commit it to GitHub.
 
 ---
 
-## Project Structure
+## 🎮 Demo (GIF)
 
+<!-- Replace with your actual GIF — record with ScreenToGif (free tool) -->
+![Gameplay demo](docs/screenshots/demo.gif)
+
+---
+
+## 🚀 Features
+
+- 3D rendering with [raylib](https://www.raylib.com/)
+- Mercedes-Benz W11 F1 car model (`.glb`)
+- Monaco circuit track model
+- Free-move camera
+- Custom ECS (Entity Component System)
+- Physics stubs: suspension, aerodynamics, tyre model, braking
+- Audio manager (miniaudio)
+- DRS system skeleton
+- Race manager
+
+---
+
+## 🗂️ Project Structure
+
+```
 f1-game/
-├── .gitignore
-├── .vscode/
-│   └── c_cpp_properties.json
 ├── assets/
-│   ├── audio/                          # Game audio files (e.g., engine sounds, music)
+│   ├── audio/                        # Engine sounds, music
 │   └── models/
 │       ├── car/
 │       │   └── 2020-f1-mercedes-benz-w11/
-│       │       ├── source/
-│       │       │   └── 2020 F1 Mercedes-Benz W11.glb
-│       │       └── textures/
-│       │           ├── 2020_f1_mercedes_w11_badges.etc_3.png
-│       │           ├── 2020_f1_mercedes_w11_cab.etc_5.png
-│       │           ├── 2020_f1_mercedes_w11_ext_44.etc_4.png
-│       │           ├── 2020_f1_mercedes_w11_lights.etc_6.png
-│       │           ├── 2020_f1_mercedes_w11_misc.etc_0.png
-│       │           ├── 2020_f1_mercedes_w11_wheel.etc_1.png
-│       │           ├── car_chassis.etc_8.png
-│       │           ├── car_tyre_slick_pirelli_f1_2019.etc_2.png
-│       │           └── car_windows.etc_7.png
-│       ├── city/
-│       │   ├── source/
-│       │   │   └── Untitled.glb
-│       │   └── textures/               # 100+ building/environment textures (Image_*.png, etc.)
+│       │       ├── source/           # W11.glb
+│       │       └── textures/         # PBR texture maps
+│       ├── city/                     # Environment / buildings
 │       └── track/
-│           └── source/
-│               └── trakmonaco.glb      # Monaco track model
-├── out/                                # Build artifacts
-├── src/                                # C++ source (physics, rendering, game logic)
+│           └── source/trakmonaco.glb # Monaco circuit
+├── src/
 │   ├── main.cpp
-│   ├── audio/ (AudioManager.hpp/cpp, miniaudio.h)
-│   ├── core/ (ECS.hpp, Engine.hpp/cpp, EventBus.hpp)
-│   ├── game/ (Car.hpp/cpp, DRS.hpp/cpp, RaceManager.hpp/cpp, Track.hpp/cpp)
-│   ├── physics/ (Aerodynamics.hpp, BrakingSystem.hpp, EngineDrivetrain.hpp, F1Constants.hpp, Suspension.hpp/cpp, Tire*.hpp, Vehicle*.hpp/cpp, WeightTransfer.hpp, VehicleConstants.hpp)
-│   ├── render/ (Camera.hpp, Renderer.hpp/cpp, ShaderManager.hpp/cpp)
-│   └── steam/ (SteamManager.hpp/cpp)
-├── tools/
-│   ├── generate_ibl.bat
-│   └── ibl_baker.py
+│   ├── core/     # ECS, Engine, EventBus
+│   ├── game/     # Car, DRS, RaceManager, Track
+│   ├── physics/  # Suspension, Tyres, Aero, Braking
+│   ├── render/   # Camera, Renderer, ShaderManager
+│   └── audio/    # AudioManager
+├── out/          # Build output — assets must be copied here
 ├── CMakeLists.txt
-├── Build scripts: compile.bat, compile2.bat, compile_temp.bat, run_build.bat, build.ps1
-├── Docs: README.md, TODO.md, PHASE3-FIX-TODO.md, PHASE
+└── compile.bat
+```
 
-Important:
-
-Assets must be inside runtime folder:
-
-
-out/assets/models/
-
-
-Otherwise the game will not load models.
+> ⚠️ **Important:** Assets must live inside `out/assets/models/` at runtime or models won't load.
 
 ---
 
-## Build & Run
+## 🛠️ Build & Run
 
-Requirements:
+### Requirements
 
-- C++17
-- raylib
-- g++
+| Tool | Version |
+|------|---------|
+| C++ | 17 or higher |
+| raylib | 4.5+ |
+| g++ / MinGW | latest |
 
-Run:
+### Quick build (Windows)
 
-
+```bat
 compile.bat
+```
 
+### Manual build
 
-or
+```bash
+g++ src/main.cpp -Iinclude -Llib -lraylib -lopengl32 -lgdi32 -lwinmm -o out/f1_racing.exe
+```
 
+### Run
 
-g++ main.cpp -lraylib -lopengl32 -lgdi32 -lwinmm
-
-
-Then run:
-
-
+```bash
+cd out
 f1_racing.exe
-
-
----
-
-## Challenges I Faced
-
-This was my first time making something like this and I struggled with:
-
-- Failed to open GLB files
-- Working directory problems
-- Installing extensions
-- Fixing engine code
-- Understanding raylib model loading
-- Debugging for many hours
-
-But solving these problems helped me understand game development much better.
+```
 
 ---
 
-## Future Plans
+## 📷 How to Add Your Own Screenshots to This README
 
-- Add car movement
-- Add basic physics
-- Add collisions
-- Improve camera
-- Add UI
-- Build a small racing game
+1. Take a screenshot while the game is running (`PrintScreen` or a tool like ShareX)
+2. Save it as a `.png` file
+3. Create a folder in your repo: `docs/screenshots/`
+4. Put your image there, for example: `docs/screenshots/gameplay.png`
+5. In this README, use:
+
+```markdown
+![Description of image](docs/screenshots/your-image-name.png)
+```
+
+6. Commit and push — GitHub renders it automatically ✅
+
+You can also link to an **external image URL**:
+
+```markdown
+![Description](https://i.imgur.com/your-image-id.png)
+```
+
+Or add a **clickable image** that opens a video:
+
+```markdown
+[![Watch the demo](docs/screenshots/thumbnail.png)](https://youtu.be/your-video-id)
+```will be posted soon
 
 ---
 
-##  Contribute
-PRs welcome! Issues for bugs/track requests. Star if you lap Monaco under 1:10!
+## 🗺️ Roadmap
 
-**Built with love for F1 fans. First try, but hooked for life.**
+- [x] Window creation
+- [x] GLB model loading (car + track)
+- [x] Free camera
+- [x] ECS architecture
+- [x] Physics stubs (suspension, aero, tyres)
+- [ ] Car movement & input
+- [ ] Collision detection
+- [ ] Lap timing system
+- [ ] AI opponents
+- [ ] HUD (speed, gear, delta)
+- [ ] Full race loop
 
 ---
 
-*© 2026 Solo Dev. MIT License.
+## 🧠 What I Learned
+
+Building this from scratch (instead of using Unity/Unreal) taught me:
+
+- How real-time rendering pipelines work internally
+- How game engines handle model loading and the working directory
+- How ECS architecture separates concerns in a game
+- How to debug C++ crashes, path issues, and OpenGL errors
+- How physics systems (suspension, tyres, weight transfer) are structured
+
+---
+
+## 🤝 Contributing
+
+PRs welcome! Open an issue for bugs or track requests.
+
+⭐ Star this repo if you lap Monaco under **1:10**!
+
+---
+
+*© 2026 Solo Dev · MIT License · Built with love for F1 fans*
