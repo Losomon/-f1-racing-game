@@ -112,34 +112,6 @@ f1_racing.exe
 
 ---
 
-## 📷 How to Add Your Own Screenshots to This README
-
-1. Take a screenshot while the game is running (`PrintScreen` or a tool like ShareX)
-2. Save it as a `.png` file
-3. Create a folder in your repo: `docs/screenshots/`
-4. Put your image there, for example: `docs/screenshots/gameplay.png`
-5. In this README, use:
-
-```markdown
-![Description of image](docs/screenshots/your-image-name.png)
-```
-
-6. Commit and push — GitHub renders it automatically ✅
-
-You can also link to an **external image URL**:
-
-```markdown
-![Description](https://i.imgur.com/your-image-id.png)
-```
-
-Or add a **clickable image** that opens a video:
-
-```markdown
-[![Watch the demo](docs/screenshots/thumbnail.png)](https://youtu.be/your-video-id)
-```will be posted soon
-
----
-
 ## 🗺️ Roadmap
 
 - [x] Window creation
