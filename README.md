@@ -16,7 +16,7 @@
      Example: docs/screenshots/gameplay.png -->
 
 ### Main view
-![Main gameplay view](docs/screenshots/gameplay.png)
+<img width="1031" height="477" alt="Image" src="https://github.com/user-attachments/assets/4d5fe95a-8539-4608-84ff-68d828c48223" />
 
 ### Car render
 
