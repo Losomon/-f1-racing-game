@@ -23,7 +23,7 @@
 <img width="567" height="353" alt="Image" src="https://github.com/user-attachments/assets/507b1048-c109-4677-beaa-d8ee877b5f1e" />
 
 ### Monaco track
-![Monaco circuit](docs/screenshots/track.png)
+<img width="1031" height="477" alt="Image" src="https://github.com/user-attachments/assets/4d5fe95a-8539-4608-84ff-68d828c48223" />
 
 > **Tip:** To add a screenshot, press `PrintScreen` while the game runs,
 > save it as a `.png`, place it in `docs/screenshots/`, and commit it to GitHub.
